@@ -2,6 +2,7 @@ package com.example.jwtbearer.exception;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -23,4 +24,18 @@ public class ExceptionHandlerController {
         log.error("-");
         return ex.getMessage();
     }
+
+    @ExceptionHandler(BadCredentialsException.class)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    public String handleBadCredentials(BadCredentialsException ex) {
+        log.error("-");
+        log.error("-");
+        log.error("-");
+        log.error("Invalid credentials");
+        log.error("-");
+        log.error("-");
+        log.error("-");
+        return ex.getMessage();
+    }
+
 }
