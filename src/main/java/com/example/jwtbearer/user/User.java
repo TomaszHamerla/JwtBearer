@@ -3,6 +3,7 @@ package com.example.jwtbearer.user;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,6 +20,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
+@Table(name = "users")
 public class User implements UserDetails {
 
     @Id
